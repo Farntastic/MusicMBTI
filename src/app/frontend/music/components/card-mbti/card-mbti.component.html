@@ -1,0 +1,9 @@
+<div class="carousel-container">
+  <button (click)="scrollLeft()" class="scroll-btn left-btn"><i class="fa-solid fa-circle-chevron-left"></i></button>
+  <div class="carousel" #carousel>
+    <div class="card-mbti" *ngFor="let card of cards; let i = index">
+      Card {{ i + 1 }}  
+    </div> 
+  </div>
+  <button (click)="scrollRight()" class="scroll-btn right-btn"><i class="fa-solid fa-circle-chevron-right"></i></button>
+</div>

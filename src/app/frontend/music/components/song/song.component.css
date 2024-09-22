@@ -1,0 +1,89 @@
+.main {
+    --clr-text: white;
+    padding: 2.5cm;
+    margin-top: -18px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+  }
+  
+  .songs-container {
+    display: flex;
+    justify-content: space-between; /* จัดแต่ละคอลัมน์ให้เว้นระยะห่างเท่ากัน */
+    gap: 1 rem;
+    margin: -1cm;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 1em; /* เพิ่มระยะห่างเล็กน้อย */
+    flex-basis: 50%;
+    margin-left: 2.8cm;
+  }
+  
+  .song {
+    padding: 1em;
+    border-radius: 5px;
+    color: var(--clr-text);
+    display: flex;
+    align-items: center;
+    position: relative; /* ใช้เพื่อให้จัดการเส้นขอบได้ง่ายขึ้น */
+  }
+  .song:hover  {
+    background-color: #003357;
+    border-radius: 15px;
+    width: 100%;
+    opacity: 0.7;
+    
+}
+  .albumcover {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(215, 173, 173);
+    border-radius: 5px;
+    margin-right: 1rem;
+    position: relative; /* ใช้ position เพื่อวางไอคอนให้ตรงกลาง */
+}
+ 
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    opacity: 0; /* เริ่มต้นให้ไอคอนมองไม่เห็น */
+    transition: opacity 0.3s ease; /* ทำให้ไอคอนค่อย ๆ แสดงเมื่อ hover */
+}
+
+.song:hover .play-icon {
+    opacity: 1; /* แสดงไอคอนเมื่อ hover */
+}
+  
+.song-info {
+    display: flex;
+    flex-direction: column; /* จัดวาง song-title และ artist ในแนวตั้ง */
+}
+ 
+.song-title {
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 700;
+}
+  
+.artist {
+    font-size: 10px;
+    font-family: Poppins;
+    font-weight: 300;
+}
+
+.headsong h1{
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 700;
+    color: #FFDF00;
+    margin: 10px 0;
+    left: 2.5cm;
+    position: absolute;
+}

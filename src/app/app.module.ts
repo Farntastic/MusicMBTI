@@ -3,6 +3,16 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './frontend/music/components/home/home.component';
+import { CardMbtiComponent } from './frontend/music/components/card-mbti/card-mbti.component';
+import { NavbarComponent } from './frontend/music/components/navbar/navbar.component';
+import { BubbleEffectComponent } from './frontend/music/components/bubble-effect/bubble-effect.component';
+import { FoottedComponent } from './frontend/music/components/footted/footted.component';
+import { SongComponent } from './frontend/music/components/song/song.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { ArtistComponent } from './components/artist/artist.component';
+import { CardComponent } from './components/card/card.component';
 
 import { ArtistComponent } from './components/artist/artist.component';
 import { CardComponent } from './components/card/card.component';
@@ -10,12 +20,19 @@ import { CardComponent } from './components/card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    CardMbtiComponent,
+    NavbarComponent,
+    BubbleEffectComponent,
+    FoottedComponent,
+    SongComponent,
     ArtistComponent,
     CardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
