@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ArtistComponent } from './components/artist/artist.component';
 import { CardComponent } from './components/card/card.component';
 
+import { ArtistComponent } from './components/artist/artist.component';
+import { CardComponent } from './components/card/card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
