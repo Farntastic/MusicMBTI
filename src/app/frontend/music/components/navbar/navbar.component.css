@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Bebas+Neue&family=Poppins&display=swap");
+
+.navbar {
+  display: flex;
+  position:fixed;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between; /* กระจายเนื้อหาให้มีพื้นที่ว่างระหว่างโลโก้, ลิงก์เมนู, และโปรไฟล์ */
+  padding: 8px 40px;
+  background-color: none; /* โทนสี dark blue */
+  overflow: hidden;
+  z-index: 10;
+}
+
+.navbar-logo {
+  width: 45px;
+  height: 45px;
+  background-image: url('../img/logo.png');
+  background-size: cover; /* ทำให้ภาพขยายตามขนาดของบล็อก */
+  background-position: center; /* จัดให้ภาพอยู่ตรงกลาง */
+}
+
+.navbar-links {
+  display: flex;
+  gap: 40px; /* ระยะห่างระหว่างลิงก์ */
+  list-style: none; /* เอาเครื่องหมายลิสต์ออก */
+  margin-left: 35cm;
+}
+
+.navbar-links li {
+  margin: 0; /* ลบระยะห่างจากลิงก์ */
+}
+
+.navbar-links li a {
+  color: white; /*FFD700*/
+  text-decoration: none;
+  font-size: 1em;
+  font-family: "Poppins";
+  font-weight: 700;
+}
+
+.navbar-links li a:hover {
+  color: #FFDF00; /* สีเมื่อ hover */
+}
+.navbar-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-link {
+  display: block; /* ทำให้ลิงก์คลุมพื้นที่รูปภาพ */
+  border: none; /* เอาขอบออกจากลิงก์ */
+  background: none; /* เอาพื้นหลังออกจากลิงก์ */
+}
+
+.navbar-profile a {
+  margin: 0;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+      display: none; /* ซ่อนลิงก์เมนูเมื่อหน้าจอเล็ก */
+      flex-direction: column; /* จัดลิงก์ในแนวตั้ง */
+      position: absolute; /* ใช้ตำแหน่งแบบ absolute เพื่อแสดงเมนูแบบดรอปดาวน์ */
+      top: 60px; /* ตำแหน่งจากด้านบน */
+      right: 20px; /* ตำแหน่งจากด้านขวา */
+      background-color: #003366; /* สีพื้นหลังของเมนูแบบดรอปดาวน์ */
+      border-radius: 5px; /* มุมของเมนูแบบดรอปดาวน์ */
+  }
+
+  .navbar-links.active {
+      display: flex; /* แสดงลิงก์เมื่อคลิกที่ไอคอนเมนู */
+  }
+}
