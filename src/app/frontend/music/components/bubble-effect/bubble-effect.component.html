@@ -1,0 +1,15 @@
+<div class="bubble-container">
+    <div 
+      class="bubble"
+      *ngFor="let bubble of bubbles"
+      [ngStyle]="{
+        'top': bubble.top,
+        'left': bubble.left,
+        'width': bubble.size,
+        'height': bubble.size,
+        'animation': bubble.animationName + ' ' + bubble.animationDuration + ' ease-in-out infinite',
+        'animation-delay': bubble.animationDelay
+      }">
+    </div>
+  </div>
+  
