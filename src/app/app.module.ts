@@ -14,6 +14,7 @@ import { PlaylistHeadedComponent } from './frontend/music/components/playlist-he
 import { PlaylistBarComponent } from './frontend/music/components/playlist-bar/playlist-bar.component';
 import { PlaylistSongComponent } from './frontend/music/components/playlist-song/playlist-song.component';
 import { SongBarComponent } from './frontend/music/components/song-bar/song-bar.component';
+import { PlaylistComponent } from './frontend/music/components/playlist/playlist.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SongBarComponent } from './frontend/music/components/song-bar/song-bar.
     PlaylistHeadedComponent,
     PlaylistBarComponent,
     PlaylistSongComponent,
-    SongBarComponent
+    SongBarComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
