@@ -11,11 +11,6 @@ import { FoottedComponent } from './frontend/music/components/footted/footted.co
 import { SongComponent } from './frontend/music/components/song/song.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ArtistComponent } from './components/artist/artist.component';
-import { CardComponent } from './components/card/card.component';
-
-import { ArtistComponent } from './components/artist/artist.component';
-import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +20,7 @@ import { CardComponent } from './components/card/card.component';
     NavbarComponent,
     BubbleEffectComponent,
     FoottedComponent,
-    SongComponent,
-    ArtistComponent,
-    CardComponent
+    SongComponent
   ],
   imports: [
     BrowserModule,
