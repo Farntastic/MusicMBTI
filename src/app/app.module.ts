@@ -10,6 +10,7 @@ import { BubbleEffectComponent } from './frontend/music/components/bubble-effect
 import { FoottedComponent } from './frontend/music/components/footted/footted.component';
 import { SongComponent } from './frontend/music/components/song/song.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlaylistHeadedComponent } from './frontend/music/components/playlist-headed/playlist-headed.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     BubbleEffectComponent,
     FoottedComponent,
-    SongComponent
+    SongComponent,
+    PlaylistHeadedComponent
   ],
   imports: [
     BrowserModule,
