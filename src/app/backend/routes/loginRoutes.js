@@ -8,7 +8,7 @@ const router = express.Router();
 
 // ลงทะเบียนผู้ใช้ใหม่
 router.post('/register', async (req, res) => {
-    const { id, username, email, password } = req.body;
+    const { username, email, password } = req.body;
 
     // ตรวจสอบว่าผู้ใช้มีอยู่แล้วหรือไม่
     const existingUser = await Login.findOne({ $or: [{ username }, { email }] });
@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
     try {
         // เข้ารหัสรหัสผ่านก่อนบันทึกลงฐานข้อมูล
         const hashedPassword = await bcrypt.hash(password, 10); // ใช้ 10 เป็น salt rounds
-        const newUser = new Login({ id, username, email, passwordHash: hashedPassword });
+        const newUser = new Login({ username, email, passwordHash: hashedPassword });
 
         await newUser.save();
         res.status(201).json({ message: 'User created successfully' });
@@ -28,6 +28,15 @@ router.post('/register', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
+const compareHash = async (plainText, hashText) => {
+    try {
+        const isMatch = await bcrypt.compare(plainText, hashText);
+        return isMatch;
+    } catch (err) {
+        throw new Error('Error comparing hash');
+    }
+};
 
 // เข้าสู่ระบบผู้ใช้
 router.post('/', async (req, res) => {
@@ -38,7 +47,7 @@ router.post('/', async (req, res) => {
         if (!user) return res.status(404).json({ message: 'User not found' });
 
         // ตรวจสอบรหัสผ่าน
-        const isMatch = await bcrypt.compare(password, user.passwordHash);
+        const isMatch = await compareHash(password, user.passwordHash);
         if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
 
         // สร้าง JWT token

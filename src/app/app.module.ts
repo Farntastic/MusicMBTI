@@ -17,6 +17,7 @@ import { SongBarComponent } from './frontend/music/components/song-bar/song-bar.
 import { PlaylistComponent } from './frontend/music/components/playlist/playlist.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
