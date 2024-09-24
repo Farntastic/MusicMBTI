@@ -19,7 +19,7 @@ export class ArtistComponent {
   topArtists = [
     {
       name: 'Beyoncé',
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Beyonce_-_2019.jpg',
+      imageUrl: 'https://i.dailymail.co.uk/1s/2024/02/04/19/80834025-13044313-On_Sunday_morning_the_34_year_old_singer_changed_her_profile_pho-a-34_1707075235694.jpg',
     },
     {
       name: 'Ed Sheeran',
