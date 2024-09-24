@@ -6,7 +6,7 @@ const router = express.Router();
 router.route('/all')
     .get(async (req, res) => {
         try {
-            const albums = await Album.find().populate('artist_id'); // Retrieve all albums with artist info
+            const albums = await Album.find()
             res.status(200).json(albums); // Send data back
         } catch (error) {
             console.error('Error retrieving albums:', error);
@@ -14,19 +14,38 @@ router.route('/all')
         }
     });
 
-// Route for retrieving an album by ID
-router.route('/number/:id')
+
+// Route for retrieving albums by artist's number ID
+router.route('/artist/:artistId')
     .get(async (req, res) => {
         try {
-            const album = await Album.findOne({ id: parseInt(req.params.id) }).populate('artist_id'); // Find album by id
-            if (!album) {
-                return res.status(404).json({ message: 'Album not found' });
+            const artistId = parseInt(req.params.artistId); // Get the artist's number ID from the URL
+            const albums = await Album.find({ artist_id: artistId }); // Query albums by artist's number ID
+
+            if (!albums || albums.length === 0) {
+                return res.status(404).json({ message: 'Albums for this artist not found' });
             }
-            res.status(200).json(album); // Send data back
+
+            res.status(200).json(albums); // Send the albums back
         } catch (error) {
-            console.error('Error retrieving album:', error);
-            res.status(500).json({ message: 'Error retrieving data' });
+            console.error('Error retrieving albums:', error);
+            res.status(500).json({ message: 'Error retrieving albums' });
         }
     });
 
+    // Route for retrieving albums by artist's ID
+router.route('/artist/:artistId')
+.get(async (req, res) => {
+  try {
+    const artistId = req.params.artistId; // Artist ID should be a string or number, depending on your database
+    const albums = await Album.find({ artist_id: artistId }); // Query albums by artist's ID
+    if (!albums || albums.length === 0) {
+      return res.status(404).json({ message: 'Albums for this artist not found' });
+    }
+    res.status(200).json(albums);
+  } catch (error) {
+    console.error('Error retrieving albums:', error);
+    res.status(500).json({ message: 'Error retrieving albums' });
+  }
+});
 module.exports = router;

@@ -10,10 +10,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/HOME', pathMatch: 'full' },
   { path: 'HOME', component: HomeComponent },
   { path: 'PLAYLIST', component: PlaylistComponent },
-  { path: 'artistprofile', component: ArtistprofileComponent },
-  { path: 'artistprofile/:artistName', component: ArtistprofileComponent },
   { path: 'artist', component: ArtistComponent },
   { path: 'albumartist/:albumName', component: AlbumartistComponent },
+  { path: 'artistprofile/:artistId', component: ArtistprofileComponent }, // artistId is required here
 ];
 
 @NgModule({
