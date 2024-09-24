@@ -1,0 +1,93 @@
+<div class="min-h-screen bg-gray-100">
+    <!-- Artist Profile Banner -->
+    <div class="bg-cover bg-center h-64 relative" style="background-image: url('your-artist-image-url.jpg');">
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <h1 class="text-white text-5xl font-bold">The Weeknd</h1>
+      </div>
+    </div>
+  
+    <!-- Artist Info Section -->
+    <div class="container mx-auto py-10 px-4">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <p class="text-lg mb-4">The Weeknd is a talented and popular Ethiopian Hipster R&B artist who hails from the beautiful country of Canada.</p>
+      
+      </div>
+  
+      <!-- New Releases Section with Pagination Controls in Table Header -->
+      <div class="mt-10">
+        <h3 class="text-2xl font-semibold mb-4">New Releases</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full table-auto border-collapse">
+            <thead>
+              <tr class="bg-gray-200 text-left">
+                <th class="p-3">#</th>
+                <th class="p-3">Title</th>
+                <th class="p-3">Album</th>
+                <th class="p-3">Duration</th>
+                <th class="p-3">Plays</th>
+                <th class="p-3 text-right">
+                  <!-- ปุ่ม Previous และ Next -->
+                  <button class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300"
+                          (click)="previousPage()" 
+                          [disabled]="currentPage === 1">
+                    &lt;
+                  </button>
+                  <button class="bg-gray-300 px-4 py-2 ml-2 rounded-lg hover:bg-gray-400 transition duration-300"
+                          (click)="nextPage()" 
+                          [disabled]="currentPage * itemsPerPage >= newReleases.length">
+                    &gt;
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let song of paginatedReleases; let i = index" class="border-b">
+                <td class="p-3">{{ (currentPage - 1) * itemsPerPage + i + 1 }}.</td>
+                <td class="p-3">{{ song.title }}</td>
+                <td class="p-3">{{ song.album }}</td>
+                <td class="p-3">{{ song.duration }}</td>
+                <td class="p-3">{{ song.plays }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+   <!-- Albums Section with Horizontal Scroll and Smooth Animation -->
+<div class="mt-10">
+  <!-- Wrapper สำหรับหัวข้อและปุ่มเลื่อนซ้ายขวา -->
+  <div class="flex justify-between items-center">
+    <!-- หัวข้อ Albums -->
+    <h3 class="text-2xl font-semibold">Albums</h3>
+
+    <!-- ปุ่มเลื่อนซ้ายและขวา -->
+    <div class="flex space-x-2">
+      <button class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300"
+              (click)="scrollLeft()">
+        &lt;
+      </button>
+      <button class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300"
+              (click)="scrollRight()">
+        &gt;
+      </button>
+    </div>
+  </div>
+
+  <!-- Albums Grid with Smooth Scroll -->
+  <div class="overflow-x-auto album-container mt-4" #albumContainer>
+    <div class="flex space-x-4">
+      <div *ngFor="let album of albums" class="flex-shrink-0 w-48">
+        <a [routerLink]="['/albumartist', album.name]">
+          <img class="w-full h-auto rounded-lg shadow-md cursor-pointer" [src]="album.image" [alt]="album.name">
+          <p class="text-center mt-2">{{ album.name }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+  

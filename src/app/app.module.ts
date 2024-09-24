@@ -15,7 +15,10 @@ import { PlaylistBarComponent } from './frontend/music/components/playlist-bar/p
 import { PlaylistSongComponent } from './frontend/music/components/playlist-song/playlist-song.component';
 import { SongBarComponent } from './frontend/music/components/song-bar/song-bar.component';
 import { PlaylistComponent } from './frontend/music/components/playlist/playlist.component';
-
+import { ArtistComponent } from './frontend/artist/components/artist/artist.component';
+import { ArtistprofileComponent } from './frontend/artist/components/artistprofile/artistprofile.component';
+import { AlbumartistComponent } from './frontend/artist/components/albumartist/albumartist.component';
+import { CardComponent } from './frontend/artist/components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,11 @@ import { PlaylistComponent } from './frontend/music/components/playlist/playlist
     PlaylistBarComponent,
     PlaylistSongComponent,
     SongBarComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ArtistComponent,
+    CardComponent,
+    ArtistprofileComponent,
+    AlbumartistComponent
   ],
   imports: [
     BrowserModule,
