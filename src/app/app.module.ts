@@ -10,11 +10,11 @@ import { BubbleEffectComponent } from './frontend/music/components/bubble-effect
 import { FoottedComponent } from './frontend/music/components/footted/footted.component';
 import { SongComponent } from './frontend/music/components/song/song.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PlaylistHeadedComponent } from './frontend/music/components/playlist-headed/playlist-headed.component';
-import { PlaylistBarComponent } from './frontend/music/components/playlist-bar/playlist-bar.component';
-import { PlaylistSongComponent } from './frontend/music/components/playlist-song/playlist-song.component';
-import { SongBarComponent } from './frontend/music/components/song-bar/song-bar.component';
-import { PlaylistComponent } from './frontend/music/components/playlist/playlist.component';
+import { PlaylistHeadedComponent } from './frontend/playlists/components/playlist-headed/playlist-headed.component';
+import { PlaylistBarComponent } from './frontend/playlists/components/playlist-bar/playlist-bar.component';
+import { PlaylistSongComponent } from './frontend/playlists/components/playlist-song/playlist-song.component';
+import { SongBarComponent } from './frontend/playlists/components/song-bar/song-bar.component';
+import { PlaylistComponent } from './frontend/playlists/components/playlist/playlist.component';
 import { ArtistComponent } from './frontend/artist/components/artist/artist.component';
 import { ArtistprofileComponent } from './frontend/artist/components/artistprofile/artistprofile.component';
 import { AlbumartistComponent } from './frontend/artist/components/albumartist/albumartist.component';
