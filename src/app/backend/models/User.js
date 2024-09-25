@@ -34,6 +34,7 @@ const UserSchema = new mongoose.Schema({
     login_id: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
+        unique: true,
         ref: 'Login', // เชื่อมโยงกับ Entity Login
     }
 }, {

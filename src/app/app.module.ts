@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // เพิ่ม FormsModule
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,9 @@ import { ArtistComponent } from './frontend/artist/components/artist/artist.comp
 import { ArtistprofileComponent } from './frontend/artist/components/artistprofile/artistprofile.component';
 import { AlbumartistComponent } from './frontend/artist/components/albumartist/albumartist.component';
 import { CardComponent } from './frontend/artist/components/card/card.component';
+import { SignUpFormComponent } from './frontend/login/components/signup-form/signup-form.component';
+import { SignInFormComponent } from './frontend/login/components/signin-form/signin-form.component';
+import { UserComponent } from './frontend/user/components/user.component';
 
 
 @NgModule({
@@ -38,11 +43,16 @@ import { CardComponent } from './frontend/artist/components/card/card.component'
     ArtistComponent,
     CardComponent,
     ArtistprofileComponent,
-    AlbumartistComponent
+    AlbumartistComponent,
+    SignUpFormComponent,
+    SignInFormComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [
