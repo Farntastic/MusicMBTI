@@ -1,0 +1,78 @@
+<div class="mbti-song">
+  <app-bubble-effect></app-bubble-effect>
+  <div class="row">
+
+    <!-- คอลัมน์ซ้าย -->
+    <div class="column-left" style="max-width: 40%;">
+      <div class="card-mbtiSong">
+      </div>
+      <div class="cardplay">
+        <div class="top">
+          <div>
+            <p class="title-1">Everything I Wanted</p>
+            <p class="title-2">Billie Eilish</p>
+          </div>
+        </div>
+        <div class="controls">
+          <button><i class="fa-solid fa-backward-step" ></i></button>
+          <button><i class="fa-solid fa-circle-pause" style="font-size: 70px; color: #fff; opacity: 0.8;"></i></button>
+          <button><i class="fa-solid fa-forward-step"></i></button>
+        </div>
+        <div class="time">
+          <div class="elapsed"></div>
+        </div>
+        <p class="timetext time_full">3:46</p>
+      </div>
+    </div>
+
+    <!-- คอลัมน์ขวา -->
+    <div class="column-right">
+      <app-card-mbti [isMbtiPage]="true" class="mbti-specific"></app-card-mbti>
+        <div class="texts">
+          <h1>MBTI PLATLIST</h1>
+        </div>
+        <div class="main">
+          <div class="loader">
+            <div class="song">
+              <p class="name">Time in a Bottle</p>
+              <p class="artist">Jim Corce</p>
+              <p class="artist">INFP</p>
+            </div>
+            <div class="albumcover"></div>
+            <button class="playsong"><i class="fa-regular fa-circle-play"></i></button>
+          </div>
+          <div class="loader">
+            <div class="song">
+              <p class="name">My Way</p>
+              <p class="artist">Frank Sinatra</p>
+            </div>
+            <div class="albumcover"></div>
+            <button class="playsong"><i class="fa-regular fa-circle-play"></i></button>
+          </div>
+          <div class="loader">
+            <div class="song">
+              <p class="name">Lemon Tree</p>
+              <p class="artist">Fools Garden</p>
+            </div>
+            <div class="albumcover"></div>
+            <button class="playsong"><i class="fa-regular fa-circle-play"></i></button>
+          </div>
+          <div class="loader">
+            <div class="song">
+              <p class="name">Lemon Tree</p>
+              <p class="artist">Fools Garden</p>
+            </div>
+            <div class="albumcover"></div>
+            <button class="playsong"><i class="fa-regular fa-circle-play"></i></button>
+          </div>
+          <div class="loader">
+            <div class="song">
+              <p class="name">Lemon Tree</p>
+              <p class="artist">Fools Garden</p>
+            </div>
+            <div class="albumcover"></div>
+            <button class="playsong"><i class="fa-regular fa-circle-play"></i></button>
+          </div>
+        </div>
+    </div>
+</div>

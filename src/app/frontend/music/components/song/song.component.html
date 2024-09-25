@@ -1,135 +1,14 @@
-<div class="headsong">
-  <h1>Popular Songs</h1>
-</div>
-<div class="main">
-  <div class="songs-container">
-    <!-- คอลัมน์ที่ 1 -->
-    <div class="column">
-      <div class="song">
-        <div class="albumcover">
-          <div class="play-icon">   
-          <i class=".play-icon" class="fa-solid fa-play"></i>
-          </div>
-      </div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
+<div class="card-containersong">
+  <div class="loader" *ngFor="let song of music">
+    <div class="card-song">
+      <img [src]="song.img" alt="{{ song.song_name }}" class="song-image" />
+      <button class="songplay" (click)="playSong(song.link)">
+        <i class="fa-solid fa-circle-play"></i>
+      </button>
     </div>
-    
-    <!-- คอลัมน์ที่ 2 -->
-    <div class="column">
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- คอลัมน์ที่ 3 -->
-    <div class="column">
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- คอลัมน์ที่ 3 -->
-    <div class="column">
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover">
-        </div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-    </div>
-     <!-- คอลัมน์ที่ 3 -->
-     <div class="column">
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
-      <div class="song">
-        <div class="albumcover"></div>
-        <div class="song-info"> <!-- กล่องข้อมูลเพลง -->
-          <div class="song-title">Song 1</div>
-          <div class="artist">Artist 1</div>
-        </div>
-      </div>
+    <div class="card-text">
+      <p class="songname">{{ song.song_name }}</p>
+      <p class="artisname">{{ song.mbtiId.mbti }}</p>
     </div>
   </div>
 </div>

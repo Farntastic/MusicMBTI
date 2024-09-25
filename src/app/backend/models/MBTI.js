@@ -4,7 +4,7 @@ var Schema = require('mongoose').Schema;
 
 const mbtiSchema = new Schema({
     id: { type: Number, required: true },
-    mbti: String,
+    mbti: { type: String, required: true },
     description: String,
 }, {
     collection: 'MBTI'

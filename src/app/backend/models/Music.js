@@ -9,7 +9,8 @@ const musicSchema = new Schema({
      mbtiId: { type: mongoose.Schema.Types.ObjectId, ref: 'MBTI' }, // Many-to-one with MBTI
      musictypeId: { type: mongoose.Schema.Types.ObjectId, ref: 'MusicType' }, // Many-to-one with MusicType
      mbtiPlaylists: [{ type: mongoose.Schema.Types.ObjectId, ref: 'MBTIPlaylist' }], // Many-to-many with MBTIPlaylist
-     musicTypePlaylists: [{ type: mongoose.Schema.Types.ObjectId, ref: 'MusicTypePlaylist' }] // Many-to-many with MusicTypePlaylist
+     musicTypePlaylists: [{ type: mongoose.Schema.Types.ObjectId, ref: 'MusicTypePlaylist' }], // Many-to-many with MusicTypePlaylist
+     album: {type: mongoose.Schema.Types.ObjectId, ref: 'album.model'}
  }, {
     collection: 'Music'
 });
