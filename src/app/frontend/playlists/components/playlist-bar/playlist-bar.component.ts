@@ -1,28 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PlaylistService } from '../../services/playlist.service';
 
 @Component({
   selector: 'app-playlist-bar',
   templateUrl: './playlist-bar.component.html',
   styleUrl: './playlist-bar.component.css'
 })
-export class PlaylistBarComponent {
-  playlists = [
-    { title: 'Favorite', music: 'Like'},
-    { title: 'Playlist 1', music: 'Something'},
-    { title: 'Playlist 2', music: 'Jazz Music'},
-    { title: 'Playlist 3', music: 'Like'},
-    { title: 'Playlist 4', music: 'Something'},
-    { title: 'Playlist 5', music: 'Jazz Music'},
-    { title: 'Playlist 6', music: 'Like'},
-    { title: 'Playlist 7', music: 'Something'},
-    { title: 'Playlist 8', music: 'Jazz Music'},
-    { title: 'Playlist 9', music: 'Like'},
-    { title: 'Playlist 10', music: 'Something'},
-    { title: 'Playlist 11', music: 'Jazz Music'},
-    { title: 'Playlist 12', music: 'Like'},
-    { title: 'Playlist 13', music: 'Something'},
-    { title: 'Playlist 14', music: 'Jazz Music'},
-    { title: 'Playlist 15', music: 'Like'},
-    { title: 'Playlist 16', music: 'Something'},
-  ]
+export class PlaylistBarComponent implements OnInit {
+
+  playlistdetail: any;
+
+  constructor(
+    private playlistservice: PlaylistService
+){
+  
+}
+ngOnInit(): void {
+  this.loadplaylist();
+}
+
+    loadplaylist() {
+      this.playlistservice.getAllplaylist().subscribe((data) => {
+        this.playlistdetail = data;
+      })
+    }
+  
+
+  createPlaylist(name: string) {
+    console.log(name);
+    this.playlistservice.createPlaylists(name).subscribe((data) => {
+      console.log(data);
+    });
+  }
 }
