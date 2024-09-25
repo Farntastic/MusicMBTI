@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 const playlistSchema = new Schema({
     id: { type: Number, required: true },
-    playlist_name: { type: String },  // เพิ่มการตรวจสอบว่าต้องมี playlist_name
+    playlist_name: { type: String },
 }, {
     collection: 'Playlist'
 });

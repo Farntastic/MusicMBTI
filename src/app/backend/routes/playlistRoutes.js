@@ -40,4 +40,27 @@ router.route('/number/:id')
         }
     });
 
+router.route('/createplaylist')
+    .post(async (req, res) => {
+        try {
+            const {id} = req.body
+
+            const newplaylist = new Playlist (
+                {
+                    id,
+                    playlist_name: "Playlist"+id,
+                }
+            )
+            const saveplaylist = await newplaylist.save();
+
+
+            res.status(200).json(saveplaylist);
+        
+        }
+        catch (error) {
+            console.error('Error retrieving Playlist by number ID:', error);
+            res.status(500).json({ message: 'Error retrieving playlist' });
+        }
+    });
+
 module.exports = router;

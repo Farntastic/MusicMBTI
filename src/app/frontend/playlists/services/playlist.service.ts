@@ -12,11 +12,16 @@ export class PlaylistService {
 
   // ดึงข้อมูลเพลงทั้งหมดจาก backend
   getAllplaylist(): Observable<any> {
-    return this.http.get(this.apiUrl); // ส่งคำขอ GET ไปยัง backend
+    return this.http.get(`${this.apiUrl}/all`); // ส่งคำขอ GET ไปยัง backend
   }
 
   // ฟังก์ชันดึงข้อมูลเพลงตาม ID (ถ้าต้องการ)
   getplaylistById(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`); // ดึงข้อมูลเพลงตาม ID
   }
+
+  createPlaylists(name: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/createplaylist`,name ); // ส่งข้อมูล ID ไปยัง API
+  }
+  
 }
