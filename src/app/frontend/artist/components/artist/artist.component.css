@@ -1,0 +1,82 @@
+main::before,
+main::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: bubble 1s infinite ease-in-out;
+  z-index: 0;
+}
+
+main::before {
+  left: 10%;
+  width: 50px;
+  height: 50px;
+  animation-duration: 12s;
+}
+
+main::after {
+  left: 70%;
+  width: 70px;
+  height: 70px;
+  animation-duration: 8s;
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-150vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+main {
+  position: relative;
+  overflow: hidden; /* ป้องกันฟองลอยออกนอกพื้นที่ */
+}
+
+/* artist.component.css */
+main {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to top, black, #001f3f);
+  padding: 1.25rem;
+}
+
+h1, h2 {
+  color: #e5e7eb;
+}
+
+button {
+  color: #3b82f6;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+section {
+  display: grid;
+  gap: 1rem;
+}
+
+img.rounded-full {
+  width: 13rem;
+  height: 13rem;
+  object-fit: cover;
+  border-radius: 9999px;
+  border: 2px solid #e5e7eb;
+}
+
+p {
+  color: #e5e7eb;
+  font-size: 1rem;
+  text-align: center;
+}

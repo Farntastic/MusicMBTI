@@ -1,0 +1,9 @@
+.card-int {
+  background-image: linear-gradient(to top , #0c1114, #0b1828, #0e1d32, #142840, #003357);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  width: 100vw; /* Full viewport width */
+  height: 100vh;
+  transition: all 0.6s ease-out;
+  overflow: hidden;
+}

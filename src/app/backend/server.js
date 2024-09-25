@@ -37,6 +37,12 @@ expressApp.use('/mbtiPlaylist',  require('./routes/mbtiPlaylistRoutes'))
 expressApp.use('/music',  require('./routes/musicRoutes'))
 expressApp.use('/musicTypePlaylist',  require('./routes/musicTypePlaylistRoutes'))
 expressApp.use('/musicType',  require('./routes/musicTypeRoutes'))
+expressApp.use('/playlist',  require('./routes/playlistRoutes'))
+expressApp.use('/user', require('./routes/userRoutes'))
+expressApp.use('/login', require('./routes/loginRoutes'))
+expressApp.use('/artist', require('./routes/artist.routes'))
+expressApp.use('/album' , require('./routes/album.routes'))
+
 
 expressApp.listen(3000, function(){
     console.log('Listening on port 3000');

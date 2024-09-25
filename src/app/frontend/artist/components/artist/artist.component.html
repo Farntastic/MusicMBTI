@@ -1,0 +1,72 @@
+<main class="grid place-items-center min-h-screen bg-gradient-to-t from-black to-blue-900 p-5">
+  <!-- Loading screen -->
+  <div *ngIf="isLoading" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70">
+    <div class="flex flex-col items-center">
+      <div class="loader mb-5"></div>
+      <p class="text-white text-2xl">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div *ngIf="!isLoading">
+    <!-- Header Image -->
+    <img
+      src="https://images.genius.com/3286a6ca5c29bd26f92c2395a49a928e.1000x333x1.jpg"
+      alt="Header Image"
+      class="w-[1500px] h-[500px] rounded-lg mb-5"
+    />
+
+   <!-- Top Artists Section -->
+<div class="mb-10">
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="text-3xl font-semibold text-gray-200">Top Artists</h2>
+    <button
+      (click)="toggleShowAllTopArtists()"
+      class="text-blue-400 hover:underline focus:outline-none">
+      {{ showAllTopArtists ? 'Show Less' : 'Show All' }}
+    </button>
+  </div>
+
+  <!-- Display artists safely -->
+  <div class="flex flex-wrap justify-center gap-6">
+    <ng-container *ngFor="let artist of artists; let i = index">
+      <!-- Only display if the artist and its name exist -->
+      <div class="flex flex-col items-center" *ngIf="artist?.name && (showAllTopArtists || i < 6)" (click)="navigateWithDelay(artist.id)">
+        <img
+          [src]="artist?.photoURL"
+          [alt]="artist?.name"
+          class="w-28 h-28 rounded-full object-cover border-2 border-gray-200 cursor-pointer"
+        />
+        <p class="mt-2 text-gray-300 font-medium">{{ artist?.name }}</p>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+    <!-- Popular Albums Section -->
+    <div>
+      <div class="flex items-center justify-between mb-5">
+        <h1 class="text-4xl sm:text-5xl md:text-4xl font-bold text-gray-200">Popular Albums</h1>
+        <button
+          (click)="toggleShowAll()"
+          class="text-blue-400 hover:underline focus:outline-none">
+          {{ showAll ? 'Show Less' : 'Show All' }}
+        </button>
+      </div>
+
+      <!-- Display albums safely -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <ng-container *ngFor="let album of albums; let i = index">
+          <app-card
+            *ngIf="album?.title && (showAll || i < 6)"
+            [title]="album?.title"
+            [artist]="album?.artist?.name" 
+            [imageUrl]="album?.coverImageURL"
+            (albumClicked)="onAlbumClick(album?.title)">
+          </app-card>
+        </ng-container>
+      </section>
+    </div>
+  </div>
+</main>
