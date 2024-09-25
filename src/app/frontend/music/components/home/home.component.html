@@ -1,11 +1,80 @@
-<div class="card">
+<div class="boby">
+  <div class="card">
     <div class="card-int">
-        <app-bubble-effect></app-bubble-effect>
-        <app-card-mbti></app-card-mbti>
-        <div class="line-home">
-          <hr class="line-separator" />
+      <app-bubble-effect></app-bubble-effect>
+  <div class="header"></div>
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="cardsong">
+        <div class="fakeimg" style="height:300px;"> 
+          <app-card-mbti></app-card-mbti>
         </div>
-        <app-footted></app-footted>
-        <app-song></app-song>
+      </div>
+      <div class="cardsong">
+        <h2 class="texttop">Trending Song</h2>
+        <div class="fakeimg" style="height:450px;">
+          <app-song (songSelected)="onSongSelected($event)"></app-song>
+        </div>
+      </div>
     </div>
+
+    <div class="rightcolumn">
+      <div class="cardsong">
+        <div class="fakeimg" style="height:400px;">
+    
+          <!-- แสดง iframe ของ Spotify เป็นค่าเริ่มต้น -->
+          <iframe *ngIf="!currentSong"
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/6dOtVTDdiauQNBQEDOtlAB?utm_source=generator" 
+            width="100%" 
+            height="500" 
+            frameBorder="0" 
+            allowfullscreen 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe> 
+    
+          <!-- แสดง iframe ของเพลงที่เลือกเมื่อ currentSong มีค่า -->
+          <iframe *ngIf="currentSong" 
+            [src]="getVideoUrl(currentSong.link)" 
+            style="border-radius:12px" 
+            width="100%" 
+            height="400" 
+            frameborder="0" 
+            allowfullscreen 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe>
+    
+        </div>
+      </div>
+
+      <div class="cardsong">
+        <h2 style="  font-family: 'Poppins'; font-weight: 700; font-size: 20px;  color: #FFDF00; margin: 35px 0;">Popular Song</h2>
+        <div class="fakeimg2">
+          <iframe style="border-radius:12px" 
+          src="https://open.spotify.com/embed/track/6dOtVTDdiauQNBQEDOtlAB?utm_source=generator" 
+          width="100%" height="100" frameBorder="0" 
+          allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+          </iframe>
+          <iframe style="border-radius:12px" 
+          src="https://open.spotify.com/embed/track/6dOtVTDdiauQNBQEDOtlAB?utm_source=generator" 
+          width="100%" height="100" frameBorder="0" 
+          allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+          </iframe>
+          <iframe style="border-radius:12px" 
+          src="https://open.spotify.com/embed/track/6dOtVTDdiauQNBQEDOtlAB?utm_source=generator" 
+          width="100%" height="100" frameBorder="0" 
+          allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+          </iframe>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+</div>
 </div>

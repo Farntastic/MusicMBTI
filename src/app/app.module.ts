@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +11,8 @@ import { NavbarComponent } from './frontend/music/components/navbar/navbar.compo
 import { BubbleEffectComponent } from './frontend/music/components/bubble-effect/bubble-effect.component';
 import { FoottedComponent } from './frontend/music/components/footted/footted.component';
 import { SongComponent } from './frontend/music/components/song/song.component';
-import { HttpClientModule } from '@angular/common/http';
+import { MbtiComponent } from './frontend/music/components/mbti/mbti.component';
+
 
 
 @NgModule({
@@ -20,16 +23,14 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     BubbleEffectComponent,
     FoottedComponent,
-    SongComponent
+    SongComponent,
+    MbtiComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [provideHttpClient(),provideClientHydration()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

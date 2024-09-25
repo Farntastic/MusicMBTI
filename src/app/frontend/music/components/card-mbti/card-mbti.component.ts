@@ -1,4 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, Input } from '@angular/core';
+import { MBTIService } from '../../services/mbti.service';
+import { Mbti } from '../../interface/mbti.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-mbti',
@@ -6,11 +9,34 @@ import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular
   styleUrls: ['./card-mbti.component.css']
 })
 export class CardMbtiComponent implements OnInit {
+  MBTi: Mbti[] = [];
+  
+  @Input() isMbtiPage: boolean = false; // รับค่า isMbtiPage เพื่อแสดงผลเฉพาะในหน้า MBTI
+
   @ViewChild('carousel') carousel!: ElementRef;
-  cards: number[] = [];
+
+  constructor(private mbtiService: MBTIService, private router: Router) { }
 
   ngOnInit(): void {
-    this.cards = Array.from({ length: 16 });
+    this.getAllmbti();
+  }
+
+  goToPlaylist(mbti: string) {
+    this.router.navigate(['MBTI/${id}', mbti]);
+  }
+
+  getAllmbti() {
+    this.mbtiService.getAllmbti().subscribe((res: any) => {
+      res.forEach((item: any) => {
+        let data = {
+          id: item.id,
+          mbti: item.mbti,
+          description: item.description,
+          img: item.img
+        };
+        this.MBTi.push(data);
+      });
+    });
   }
 
   @HostListener('wheel', ['$event'])
@@ -20,25 +46,22 @@ export class CardMbtiComponent implements OnInit {
     carouselElement.scrollLeft += event.deltaY;
   }
 
-  scrollLeft(): void {
-    const carouselElement = this.carousel.nativeElement;
-    carouselElement.scrollBy({ left: -300, behavior: 'smooth' }); // เลื่อนซ้าย
+  scrollLeft() {
+    if (this.carousel) {
+      console.log('Scrolling left');
+      this.carousel.nativeElement.scrollBy({ left: -500, behavior: 'smooth' });
+    } else {
+      console.error('Carousel element not found');
+    }
+    
   }
-
-  scrollRight(): void {
-    const carouselElement = this.carousel.nativeElement;
-    carouselElement.scrollBy({ left: 300, behavior: 'smooth' }); // เลื่อนขวา
+  scrollRight() {
+    if (this.carousel) {
+      console.log('Scrolling right');
+      this.carousel.nativeElement.scrollBy({ left: 500, behavior: 'smooth' }); // แก้ไขที่นี่
+    } else {
+      console.error('Carousel element not found');
+    }
   }
-
-  ngAfterViewInit(): void {
-    const carouselElement = this.carousel.nativeElement;
-
-    carouselElement.addEventListener('scroll', () => {
-      if (carouselElement.scrollLeft + carouselElement.clientWidth >= carouselElement.scrollWidth) {
-        setTimeout(() => {
-          carouselElement.scrollTo({ left: 0, behavior: 'smooth' });
-        }, 300);
-      }
-    });
-  }
+  
 }

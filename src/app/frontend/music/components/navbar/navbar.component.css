@@ -9,7 +9,7 @@
   padding: 8px 40px;
   background-color: none; /* โทนสี dark blue */
   overflow: hidden;
-  z-index: 10;
+  z-index: 20;
 }
 
 .navbar-logo {
@@ -64,18 +64,135 @@
   object-fit: cover; 
 }
 
-@media (max-width: 768px) {
-  .navbar-links {
-      display: none; /* ซ่อนลิงก์เมนูเมื่อหน้าจอเล็ก */
-      flex-direction: column; /* จัดลิงก์ในแนวตั้ง */
-      position: absolute; /* ใช้ตำแหน่งแบบ absolute เพื่อแสดงเมนูแบบดรอปดาวน์ */
-      top: 60px; /* ตำแหน่งจากด้านบน */
-      right: 20px; /* ตำแหน่งจากด้านขวา */
-      background-color: #003366; /* สีพื้นหลังของเมนูแบบดรอปดาวน์ */
-      border-radius: 5px; /* มุมของเมนูแบบดรอปดาวน์ */
-  }
+/*search*/
+.containersearch {
+  position: absolute;
+  right: 23%; /* วางกล่องค้นหาทางขวาของ navbar */
+  top: 50%;
+  transform: translateY(-50%); /* ทำให้กล่องอยู่กลางแกน Y ของ navbar */
+  z-index: 1;
+}
 
+.mainbox {
+  box-sizing: border-box;
+  position: relative;
+  width: 250px; /* ขนาดเริ่มต้นของกล่อง (เมื่อถูกเช็ค) */
+  height: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  border-radius: 160px;
+  background-color: #00355C;
+  transition: width 0.3s ease; 
+  transform-origin: left center; /* ขยายจากขวาไปซ้าย */
+}
+
+.checkbox {
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 17px;
+  top: 10px;
+  z-index: 9;
+  cursor: pointer;
+  appearance: none;
+}
+
+/* ขยายกล่องไปทางซ้ายเมื่อ checkbox ไม่ถูกเช็ค */
+.checkbox:not(:checked) ~ .mainbox {
+  width: 250px; /* ขยายความกว้าง */
+}
+
+.checkbox:checked ~ .mainbox {
+  width: 40px;
+  height: 40px;
+}
+
+.checkbox:checked ~ .mainbox .search_input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.checkbox:not(:checked) ~ .mainbox .search_input {
+  width: 170px;
+  opacity: 1;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.checkbox:checked ~ .mainbox .iconContainer {
+  padding-right: 8px;
+}
+
+.search_input {
+  box-sizing: border-box;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  font-size: 1em;
+  font-family: 'Poppins';
+  color: white;
+  transition: all 0.3s ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.search_input::placeholder {
+  color: #FFDF00;
+  font-family: 'Poppins';
+}
+
+.iconContainer {
+  box-sizing: border-box;
+  padding-top: 2px;
+  padding-right: 5px;
+  width: fit-content;
+}
+
+.search_icon {
+  box-sizing: border-box;
+  fill: #FFDF00;
+  font-size: 1.3em;
+}
+
+
+/* สำหรับหน้าจอที่เล็กกว่า 1200px */
+@media (max-width: 1200px) {
+  .navbar-links {
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 50px; /* ค่าเริ่มต้นสำหรับหน้าจอขนาดใหญ่ */
+      background-color: #003366; 
+      border-radius: 5px; 
+      transition: left 0.3s ease; /* เพิ่มการเปลี่ยนแปลงค่า left */
+  }
   .navbar-links.active {
       display: flex; /* แสดงลิงก์เมื่อคลิกที่ไอคอนเมนู */
+  }
+}
+
+/* สำหรับหน้าจอที่เล็กกว่า 768px */
+@media (max-width: 768px) {
+  .navbar-links {
+      left: 50px; /* ค่าเริ่มต้นสำหรับหน้าจอขนาดเล็ก */
+  }
+}
+
+/* สำหรับหน้าจอที่เล็กกว่า 600px */
+@media (max-width: 600px) {
+  .navbar-links {
+      left: 30px; /* ย้ายไปทางซ้ายเล็กน้อย */
+  }
+}
+
+/* สำหรับหน้าจอที่เล็กกว่า 480px */
+@media (max-width: 480px) {
+  .navbar-links {
+      left: 10px; /* ย้ายไปทางซ้ายมากขึ้น */
   }
 }
